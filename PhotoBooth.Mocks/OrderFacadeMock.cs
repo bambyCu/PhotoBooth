@@ -228,7 +228,5 @@ namespace PhotoBooth.Mocks
                 }
             };
         }
-
-        
     }
 }
