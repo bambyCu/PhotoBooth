@@ -17,7 +17,14 @@ namespace PhotoBooth.BL.Queries
         {
             return this.Context.Orders
                 .OrderBy(x => x.ConfirmationDate)
-                .ProjectTo<OrderListModel>(MapConfig);
+                .Select(a =>
+                (
+                    new OrderListModel()
+                    {
+                        Id = a.Id,
+                        FinalPrice = int.Parse(a.FinalPrice)
+                    }
+                ));
         }
     }
 }
